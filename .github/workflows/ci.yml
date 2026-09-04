@@ -1,0 +1,35 @@
+name: CI
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+
+env:
+    NODE_VERSION: "20"
+
+jobs:
+    ci:
+        name: Typecheck & Build
+        runs-on: ubuntu-latest
+        timeout-minutes: 25
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Install Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile --ignore-engines
+
+            - name: Check types
+              run: yarn typecheck
+
+            - name: Build package
+              run: yarn build

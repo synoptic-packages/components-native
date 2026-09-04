@@ -1,0 +1,89 @@
+name: Publish to npm
+
+# Sole purpose: release @synotech/components to the npm registry when a GitHub
+# Release is published. CI (typecheck + build) runs first as the release gate.
+# The npm auth token is read from AWS SSM (/synoptic/production/npm/token) via
+# the gha-synoptic-wallet-ui OIDC role — not from a GitHub secret.
+
+on:
+    release:
+        types: [published]
+    workflow_dispatch:
+
+env:
+    NODE_VERSION: "20"
+    AWS_REGION: "us-east-1"
+
+permissions:
+    contents: read
+    id-token: write
+    packages: read
+
+jobs:
+    ci:
+        name: Test & Build
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Install Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile --ignore-engines
+
+            - name: Check types
+              run: yarn typecheck
+
+            - name: Build package
+              run: yarn build
+
+    publish:
+        name: Publish to npm
+        runs-on: ubuntu-latest
+        needs: ci
+        timeout-minutes: 15
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Install Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  registry-url: "https://registry.npmjs.org/"
+                  cache: "yarn"
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: arn:aws:iam::140991650843:role/gha-synoptic-wallet-ui
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Fetch npm token from SSM
+              run: |
+                  NPM_TOKEN="$(aws ssm get-parameter --name "/synoptic/production/npm/token" --with-decryption --query 'Parameter.Value' --output text --region us-east-1)"
+                  if [ -z "${NPM_TOKEN}" ]; then
+                    echo "::error::npm token not found in SSM (/synoptic/production/npm/token)"
+                    exit 1
+                  fi
+                  echo "::add-mask::${NPM_TOKEN}"
+                  echo "NODE_AUTH_TOKEN=${NPM_TOKEN}" >> "$GITHUB_ENV"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile --ignore-engines
+
+            - name: Publish to npm
+              # prepublishOnly runs `yarn build` before publish.
+              run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ env.NODE_AUTH_TOKEN }}

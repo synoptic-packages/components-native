@@ -1,0 +1,275 @@
+[
+	{
+		"label": {
+			"en": "English",
+			"pt": "Inglês",
+			"es": "Inglés",
+			"hi": "अंग्रेजी",
+			"zh": "英语",
+			"ja": "英語",
+			"de": "Englisch",
+			"fr": "Anglais",
+			"ko": "영어",
+			"tr": "İngilizce",
+			"ar": "الإنجليزية",
+			"ru": "Английский",
+			"sw": "Kiingereza"
+		},
+		"code": "en",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "uk"
+	},
+	{
+		"label": {
+			"en": "Portuguese",
+			"pt": "Português",
+			"es": "Portugués",
+			"hi": "पुर्तगाली",
+			"zh": "葡萄牙语",
+			"ja": "ポルトガル語",
+			"de": "Portugiesisch",
+			"fr": "Portugais",
+			"ko": "포르투갈어",
+			"tr": "Portekizce",
+			"ar": "البرتغالية",
+			"ru": "Португальский",
+			"sw": "Kireno"
+		},
+		"code": "pt",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "pt"
+	},
+	{
+		"label": {
+			"en": "Spanish",
+			"pt": "Espanhol",
+			"es": "Español",
+			"hi": "स्पेनिश",
+			"zh": "西班牙语",
+			"ja": "スペイン語",
+			"de": "Spanisch",
+			"fr": "Espagnol",
+			"ko": "스페인어",
+			"tr": "İspanyolca",
+			"ar": "الأسبانية",
+			"ru": "Испанский",
+			"sw": "Kihispania"
+		},
+		"code": "es",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "es"
+	},
+	{
+		"label": {
+			"en": "Hindi",
+			"pt": "Hindi",
+			"es": "Hindi",
+			"hi": "हिन्दी",
+			"zh": "印地语",
+			"ja": "ヒンディー語",
+			"de": "Hindi",
+			"fr": "Hindi",
+			"ko": "힌디어",
+			"tr": "Hintçe",
+			"ar": "الهندية",
+			"ru": "Хинди",
+			"sw": "Kihindi"
+		},
+		"code": "hi",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "in"
+	},
+	{
+		"label": {
+			"en": "Chinese",
+			"pt": "Chinês",
+			"es": "Chino",
+			"hi": "चीनी",
+			"zh": "中文",
+			"ja": "中国語",
+			"de": "Chinesisch",
+			"fr": "Chinois",
+			"ko": "중국어",
+			"tr": "Çince",
+			"ar": "الصينية",
+			"ru": "Китайский",
+			"sw": "Kichina"
+		},
+		"code": "zh",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "cn"
+	},
+	{
+		"label": {
+			"en": "Japanese",
+			"pt": "Japonês",
+			"es": "Japonés",
+			"hi": "जापानी",
+			"zh": "日语",
+			"ja": "日本語",
+			"de": "Japanisch",
+			"fr": "Japonais",
+			"ko": "일본어",
+			"tr": "Japonca",
+			"ar": "اليابانية",
+			"ru": "Японский",
+			"sw": "Kijapani"
+		},
+		"code": "ja",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "jp"
+	},
+	{
+		"label": {
+			"en": "German",
+			"pt": "Alemão",
+			"es": "Alemán",
+			"hi": "जर्मन",
+			"zh": "德语",
+			"ja": "ドイツ語",
+			"de": "Deutsch",
+			"fr": "Allemand",
+			"ko": "독일어",
+			"tr": "Almanca",
+			"ar": "الألمانية",
+			"ru": "Немецкий",
+			"sw": "Kijerumani"
+		},
+		"code": "de",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "de"
+	},
+	{
+		"label": {
+			"en": "French",
+			"pt": "Francês",
+			"es": "Francés",
+			"hi": "फ्रेंच",
+			"zh": "法语",
+			"ja": "フランス語",
+			"de": "Französisch",
+			"fr": "Français",
+			"ko": "프랑스어",
+			"tr": "Fransızca",
+			"ar": "الفرنسية",
+			"ru": "Французский",
+			"sw": "Kifaransa"
+		},
+		"code": "fr",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "fr"
+	},
+	{
+		"label": {
+			"en": "Korean",
+			"pt": "Coreano",
+			"es": "Coreano",
+			"hi": "कोरियाई",
+			"zh": "韩语",
+			"ja": "韓国語",
+			"de": "Koreanisch",
+			"fr": "Coréen",
+			"ko": "한국어",
+			"tr": "Korece",
+			"ar": "الكورية",
+			"ru": "Корейский",
+			"sw": "Kikorea"
+		},
+		"code": "ko",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "kr"
+	},
+	{
+		"label": {
+			"en": "Turkish",
+			"pt": "Turco",
+			"es": "Turco",
+			"hi": "तुर्की",
+			"zh": "土耳其语",
+			"ja": "トルコ語",
+			"de": "Türkisch",
+			"fr": "Turc",
+			"ko": "터키어",
+			"tr": "Türkçe",
+			"ar": "التركية",
+			"ru": "Турецкий",
+			"sw": "Kituruki"
+		},
+		"code": "tr",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "tr"
+	},
+	{
+		"label": {
+			"en": "Arabic",
+			"pt": "Árabe",
+			"es": "Árabe",
+			"hi": "अरबी",
+			"zh": "阿拉伯语",
+			"ja": "アラビア語",
+			"de": "Arabisch",
+			"fr": "Arabe",
+			"ko": "아랍어",
+			"tr": "Arapça",
+			"ar": "العربية",
+			"ru": "Арабский",
+			"sw": "Kiarabu"
+		},
+		"code": "ar",
+		"fallbackLocale": "en",
+		"rtl": true,
+		"flag": "sa"
+	},
+	{
+		"label": {
+			"en": "Russian",
+			"pt": "Russo",
+			"es": "Ruso",
+			"hi": "रूसी",
+			"zh": "俄语",
+			"ja": "ロシア語",
+			"de": "Russisch",
+			"fr": "Russe",
+			"ko": "러시아어",
+			"tr": "Rusça",
+			"ar": "الروسية",
+			"ru": "Русский",
+			"sw": "Kirusi"
+		},
+		"code": "ru",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "ru"
+	},
+	{
+		"label": {
+			"en": "Swahili",
+			"pt": "Suaíli",
+			"es": "Suajili",
+			"hi": "स्वाहिली",
+			"zh": "斯瓦希里语",
+			"ja": "スワヒリ語",
+			"de": "Suaheli",
+			"fr": "Swahili",
+			"ko": "스와힐리어",
+			"tr": "Svahili",
+			"ar": "السواحيلية",
+			"ru": "Суахили",
+			"sw": "Kiswahili"
+		},
+		"code": "sw",
+		"fallbackLocale": "en",
+		"rtl": false,
+		"flag": "ke"
+	}
+]

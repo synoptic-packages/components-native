@@ -1,0 +1,103 @@
+{
+	"name": "@synotech/components-native",
+	"version": "0.1.0",
+	"description": "Shared React Native component library for the Synotech ecosystem",
+	"keywords": [
+		"react-native",
+		"expo",
+		"components",
+		"design-system",
+		"synotech"
+	],
+	"author": "Zeal Murapa <zeal@synotech.dev>",
+	"license": "MIT",
+	"main": "dist/commonjs/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/types/index.d.ts",
+	"react-native": "dist/commonjs/index.js",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"react-native": "./dist/commonjs/index.js",
+			"import": "./dist/esm/index.js",
+			"require": "./dist/commonjs/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "rimraf dist && tsup",
+		"typecheck": "tsc --noEmit",
+		"prepublishOnly": "yarn build",
+		"format": "prettier --write ."
+	},
+	"peerDependencies": {
+		"@expo/vector-icons": ">=15",
+		"@gorhom/bottom-sheet": ">=5",
+		"@synotech/flags": ">=3",
+		"@synotech/icons": ">=4",
+		"@synotech/qrcode-native": ">=1",
+		"expo": ">=52",
+		"lucide-react-native": ">=1",
+		"react": ">=18",
+		"react-hook-form": ">=7",
+		"react-native": ">=0.76",
+		"react-native-gesture-handler": ">=2",
+		"react-native-paper": ">=5",
+		"react-native-reanimated": ">=3",
+		"react-native-svg": ">=15"
+	},
+	"devDependencies": {
+		"@expo/vector-icons": "^15.0.3",
+		"@gorhom/bottom-sheet": "^5",
+		"@react-native-community/datetimepicker": "8.6.0",
+		"@react-native-community/hooks": "^100.1.0",
+		"@react-navigation/bottom-tabs": "^7.4.0",
+		"@synotech/flags": "^3.0.1",
+		"@synotech/icons": "^4.1.6",
+		"@synotech/qrcode-native": "^1.0.0",
+		"@types/lodash": "^4.17.24",
+		"@types/react": "^19",
+		"expo-haptics": "~14.1.4",
+		"libphonenumber-js": "^1.12.41",
+		"lodash": "^4.17.21",
+		"lucide-react-native": "^1.7.0",
+		"moti": "^0.28.1",
+		"react": "^19.2.0",
+		"react-hook-form": "^7.72.0",
+		"react-native": "^0.83.4",
+		"react-native-gesture-handler": "~2.30.0",
+		"react-native-gifted-charts": "^1.4.76",
+		"react-native-mask-input": "^1.2.3",
+		"react-native-modal": "^14.0.0-rc.1",
+		"react-native-otp-entry": "^1.8.5",
+		"react-native-paper": "^5.15.0",
+		"react-native-reanimated": "4.2.1",
+		"react-native-reanimated-carousel": "^4.0.3",
+		"react-native-safe-area-context": "~5.6.0",
+		"react-native-svg": "15.15.3",
+		"react-native-toast-message": "^2.3.3",
+		"reanimated-color-picker": "^4.2.0",
+		"rimraf": "^5.0.0",
+		"tsup": "^8.5.0",
+		"typescript": "^5.8.3"
+	},
+	"prettier": {
+		"bracketSpacing": true,
+		"tabWidth": 4,
+		"useTabs": true,
+		"bracketSameLine": true,
+		"singleQuote": true,
+		"semi": false,
+		"trailingComma": "es5",
+		"endOfLine": "auto",
+		"printWidth": 120
+	},
+	"packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

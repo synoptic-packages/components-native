@@ -55,6 +55,11 @@ jobs:
             run:
                 working-directory: example
         steps:
+            - name: Checkout master
+              uses: actions/checkout@v4
+              with:
+                  ref: master
+
             - name: Configure AWS credentials (OIDC)
               uses: aws-actions/configure-aws-credentials@v4
               with:
@@ -71,11 +76,6 @@ jobs:
                   fi
                   echo "::add-mask::${EXPO_TOKEN}"
                   echo "EXPO_TOKEN=${EXPO_TOKEN}" >> "$GITHUB_ENV"
-
-            - name: Checkout master
-              uses: actions/checkout@v4
-              with:
-                  ref: master
 
             - name: Set up Node.js
               uses: actions/setup-node@v4

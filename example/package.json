@@ -19,7 +19,7 @@
 		"@react-navigation/native": "^7.1.0",
 		"@storybook/addon-ondevice-actions": "^10.5.4",
 		"@storybook/addon-ondevice-controls": "^10.5.4",
-		"@synotech/components-native": "^4.1.0",
+		"@synotech/components-native": "^4.1.1",
 		"@synotech/flags": "^3.0.1",
 		"@synotech/icons": "^4.1.6",
 		"@synotech/qrcode-native": "^1.0.0",

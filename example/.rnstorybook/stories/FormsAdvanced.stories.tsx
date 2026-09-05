@@ -6,9 +6,7 @@ import {
 	FieldArray,
 	FieldColor,
 	FieldDate,
-	// TEMP-DISABLED: FieldDateTime is not exported by published 4.1.0 (library
-	// fix committed, lands in 4.1.1 — then restore this import).
-	// FieldDateTime,
+	FieldDateTime,
 	View,
 } from '@synotech/components-native'
 
@@ -28,8 +26,7 @@ function AdvancedFields() {
 			<FieldArray name="tags" label="Tags" control={control} placeholder="Add tag" />
 			<FieldColor name="theme" label="Color" control={control} />
 			<FieldDate name="dob" label="Birth date" control={control} />
-			{/* TEMP-DISABLED: see import note above. */}
-			{/* <FieldDateTime name="pickup" label="Pickup" control={control} nowLabel="Now" /> */}
+			<FieldDateTime name="pickup" label="Pickup" control={control} nowLabel="Now" />
 		</View>
 	)
 }

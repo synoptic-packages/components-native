@@ -1,22 +1,35 @@
 {
-	"expo": {
-		"name": "Synotech Components Native Example",
-		"slug": "synotech-components-native-example",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"userInterfaceStyle": "light",
-		"newArchEnabled": true,
-		"splash": {
-			"backgroundColor": "#ffffff"
-		},
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"backgroundColor": "#ffffff"
-			}
-		}
-	}
+  "expo": {
+    "name": "Synotech Components Native",
+    "slug": "synotech-components-native",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "owner": "synoptic-ui",
+    "scheme": "synotech-components-native",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.synotech.componentsnative.example"
+    },
+    "android": {
+      "package": "dev.synotech.componentsnative.example"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/ddbdfec1-bb19-4ad2-a5fc-a91aad9c61b8",
+      "fallbackToCacheTimeout": 0,
+      "checkAutomatically": "ON_LOAD"
+    },
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ddbdfec1-bb19-4ad2-a5fc-a91aad9c61b8"
+      }
+    },
+    "plugins": [
+      "@react-native-community/datetimepicker"
+    ]
+  }
 }

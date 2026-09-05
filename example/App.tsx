@@ -3,11 +3,17 @@ import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { PaperProvider } from 'react-native-paper'
 import { Button, Text, View, Card, setBrandColors } from '@synotech/components-native'
+import StorybookUIRoot from './.rnstorybook'
 
 // Brand override (optional — defaults are used when unregistered).
 setBrandColors({ primary: '#C2410C', accent: '#FDBA74' })
 
-export default function App() {
+// EXPO_PUBLIC_STORYBOOK_ENABLED=true swaps the entry to the on-device
+// Storybook. Storybook v10's metro plugin strips storybook modules from the
+// bundle when disabled, so this import is production-safe.
+const SHOW_STORYBOOK = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true'
+
+function App() {
 	return (
 		<SafeAreaProvider>
 			<PaperProvider>
@@ -37,3 +43,5 @@ export default function App() {
 		</SafeAreaProvider>
 	)
 }
+
+export default SHOW_STORYBOOK ? StorybookUIRoot : App

@@ -1,0 +1,111 @@
+name: Publish example update
+
+# Ships the components-native example app (native Storybook showcase) to
+# devices via EAS Update — no native builds, no build-quota spend.
+#
+# Trigger: push to master touching the example app or the library source, or
+# manual dispatch. Publishes the JS bundle to the `master` channel of the
+# synoptic-ui org EAS project (see example/eas.json + app.json `updates.url`).
+#
+# Format mirrors synoptic-vya/mobile publish-update.yaml: the Expo token comes
+# from AWS SSM (/infomentor/production/expo-token) via the
+# gha-synoptic-wallet-ui OIDC role — never from a GitHub secret, never in code.
+# NOTE: that SSM path must be added to the role's allowlist in
+# synoptic-technologies/infra/terraform/github.tf (ci_role_wallet_ui
+# ssm_parameter_names) or the fetch step fails closed.
+
+on:
+    push:
+        branches:
+            - master
+        paths:
+            - example/**
+            - src/**
+    workflow_dispatch:
+        inputs:
+            channel:
+                description: EAS Update channel
+                required: true
+                default: master
+                type: string
+
+env:
+    NODE_VERSION: "20"
+    AWS_REGION: "us-east-1"
+
+concurrency:
+    group: example-update
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        permissions:
+            contents: read
+            id-token: write
+        env:
+            CI: true
+            NODE_ENV: production
+            NODE_OPTIONS: --max-old-space-size=8192
+        defaults:
+            run:
+                working-directory: example
+        steps:
+            - name: Configure AWS credentials (OIDC)
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: arn:aws:iam::140991650843:role/gha-synoptic-wallet-ui
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Fetch Expo token from SSM
+              run: |
+                  set -euo pipefail
+                  EXPO_TOKEN="$(aws ssm get-parameter --name "/infomentor/production/expo-token" --with-decryption --query 'Parameter.Value' --output text --region us-east-1)"
+                  if [ -z "${EXPO_TOKEN}" ]; then
+                    echo "::error::Expo token not found in SSM (/infomentor/production/expo-token)"
+                    exit 1
+                  fi
+                  echo "::add-mask::${EXPO_TOKEN}"
+                  echo "EXPO_TOKEN=${EXPO_TOKEN}" >> "$GITHUB_ENV"
+
+            - name: Checkout master
+              uses: actions/checkout@v4
+              with:
+                  ref: master
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: yarn
+                  cache-dependency-path: example/yarn.lock
+
+            - name: Setup Expo and EAS
+              uses: expo/expo-github-action@v8
+              with:
+                  eas-version: latest
+                  token: ${{ env.EXPO_TOKEN }}
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile --ignore-engines
+
+            - name: Typecheck example
+              run: yarn typecheck
+
+            - name: Publish update
+              env:
+                  EXPO_TOKEN: ${{ env.EXPO_TOKEN }}
+                  CHANNEL_INPUT: ${{ github.event.inputs.channel }}
+              run: |
+                  set -euo pipefail
+                  CHANNEL="${CHANNEL_INPUT:-master}"
+                  [[ -z "$CHANNEL" ]] && CHANNEL="master"
+                  MESSAGE="$(git log -1 --pretty=%s)"
+                  eas update \
+                    --channel "$CHANNEL" \
+                    --message "$MESSAGE" \
+                    --non-interactive

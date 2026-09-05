@@ -1,6 +1,6 @@
 {
 	"name": "@synotech/components-native",
-	"version": "4.1.0",
+	"version": "4.1.1",
 	"description": "Shared React Native component library for the Synotech ecosystem",
 	"keywords": [
 		"react-native",
@@ -12,14 +12,14 @@
 	"author": "Zeal Murapa <zeal@synotech.dev>",
 	"license": "MIT",
 	"main": "dist/commonjs/index.js",
-	"module": "dist/esm/index.js",
+	"module": "dist/esm/index.mjs",
 	"types": "dist/types/index.d.ts",
-	"react-native": "dist/commonjs/index.js",
+	"react-native": "dist/esm/index.mjs",
 	"exports": {
 		".": {
 			"types": "./dist/types/index.d.ts",
-			"react-native": "./dist/commonjs/index.js",
-			"import": "./dist/esm/index.js",
+			"react-native": "./dist/esm/index.mjs",
+			"import": "./dist/esm/index.mjs",
 			"require": "./dist/commonjs/index.js"
 		}
 	},

@@ -41,7 +41,8 @@
 		"build": "rimraf dist && tsup",
 		"typecheck": "tsc --noEmit",
 		"prepublishOnly": "yarn build",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"test": "node --test --experimental-strip-types tests/*.test.mjs"
 	},
 	"peerDependencies": {
 		"@expo/vector-icons": ">=15",

@@ -8,7 +8,9 @@ export * from './browser'
 export * from './button'
 export * from './button-fancy'
 export * from './callout'
-export * from './camera-mode'
+// NOTE: './camera-mode' is intentionally NOT re-exported here. It mounts a
+// live expo CameraView (native session) — opt in via the documented subpath:
+// `@synotech/components-native/camera-mode`. See src/camera-mode.ts.
 export * from './Card'
 export * from './chart'
 export * from './chip'

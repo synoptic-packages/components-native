@@ -43,6 +43,23 @@ export const Screen = () => {
   Paper font config, `useTheme` + ColorName/StyleObject resolution
 - Vendored helpers (previously from `@wallet/provider` / the app)
 
+## Opt-in subpaths (not in the root barrel)
+
+Camera capture UI mounts a live expo `CameraView` (native session,
+permission-gated) — too heavy to bundle by default, so it lives behind a
+documented subpath. QR scanning stays in the root barrel (no session).
+
+```tsx
+import { CameraGeneral, CameraSelfie, CameraPreview } from '@synotech/components-native/camera-mode'
+```
+
+- `CameraGeneral` — full-screen document/object capture (torch, flip, capture).
+- `CameraSelfie` — guided selfie capture with face mask + brand watermark slot.
+- `CameraPreview` — accept/retry review step after a capture.
+- Requires the `expo-camera` peer. `CameraGeneral`/`CameraSelfie` cannot run
+  headless in a simulator (they are excluded from the on-device sweep for
+  that reason); `QrScanner` + `CameraPreview` sweep in Maestro flow 12.
+
 ## Build
 
 ```bash

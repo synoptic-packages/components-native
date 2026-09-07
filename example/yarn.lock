@@ -2167,9 +2167,9 @@
     react-docgen "^8.0.2"
     react-docgen-typescript "^2.2.2"
 
-"@synotech/components-native@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-4.3.0.tgz"
+"@synotech/components-native@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-5.0.0.tgz"
 
 "@synotech/flags@^3.0.1":
   version "3.0.1"

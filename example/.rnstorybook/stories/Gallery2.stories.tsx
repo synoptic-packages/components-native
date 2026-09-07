@@ -4,7 +4,6 @@ import {
 	AvatarContact,
 	AvatarUser,
 	Browser,
-	CameraPreview,
 	Divider,
 	ExternalLink,
 	Link,
@@ -16,6 +15,7 @@ import {
 	Text,
 	View,
 } from '@synotech/components-native'
+import { CameraPreview } from '@synotech/components-native/camera-mode'
 
 const meta = {
 	title: 'QA/Gallery2',
@@ -84,12 +84,14 @@ function Gallery2() {
 							setIsUploading={setPreviewUploading}
 						/>
 					</View>
-					{/* NOTE: CameraGeneral/CameraSelfie are intentionally NOT in the sweep.
-					 * Mounting a live expo CameraView in the sim poisons ScrollView measurement
-					 * (verified by bisect: siblings below never lay out, swipes stop moving).
-					 * They are thin prop pass-throughs to expo-camera — covered by typecheck,
-					 * export audit, and production use in ventry. QrScanner + CameraPreview
-					 * (the stateful ones) sweep below. */}
+					{/* NOTE: CameraGeneral/CameraSelfie are intentionally NOT in the sweep
+					 * (and NOT in the root barrel — opt in via
+					 * `@synotech/components-native/camera-mode`). Mounting a live expo
+					 * CameraView in the sim poisons ScrollView measurement (bisected:
+					 * siblings stop laying out, swipes stop moving). They are thin prop
+					 * pass-throughs to expo-camera — covered by typecheck, export audit,
+					 * and production use in ventry. QrScanner + CameraPreview (imported
+					 * from the camera-mode subpath above to prove it resolves) sweep below. */}
 				</Section>
 			</View>
 		</ScrollView>

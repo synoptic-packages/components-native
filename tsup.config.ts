@@ -11,7 +11,7 @@ const external = [
 
 export default defineConfig([
 	{
-		entry: ['src/index.ts'],
+		entry: ['src/index.ts', 'src/camera-mode.ts'],
 		outDir: 'dist/esm',
 		format: ['esm'],
 		dts: false,
@@ -24,7 +24,7 @@ export default defineConfig([
 		},
 	},
 	{
-		entry: ['src/index.ts'],
+		entry: ['src/index.ts', 'src/camera-mode.ts'],
 		outDir: 'dist/commonjs',
 		format: ['cjs'],
 		dts: false,
@@ -37,7 +37,7 @@ export default defineConfig([
 		},
 	},
 	{
-		entry: ['src/index.ts'],
+		entry: ['src/index.ts', 'src/camera-mode.ts'],
 		outDir: 'dist/types',
 		dts: { only: true },
 		clean: true,

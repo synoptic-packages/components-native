@@ -1,13 +1,30 @@
 appId: dev.synotech.componentsnative.example
 ---
 - launchApp:
-    stopApp: false
+    stopApp: true
+- extendedWaitUntil:
+    visible: "Gallery controls"
+    timeout: 120000
 - scrollUntilVisible:
-    element: "Gallery media"
-    timeout: 60000
+    element: "Gallery uploading"
+    timeout: 120000
+    speed: 5
+    optional: true
+- scrollUntilVisible:
+    element: "Gallery balance"
+    timeout: 120000
     speed: 5
     optional: true
 - assertVisible: "Gallery balance"
+- scrollUntilVisible:
+    element: "Gallery money v2"
+    timeout: 120000
+    speed: 5
+    optional: true
 - assertVisible: "Gallery money v2"
+- scrollUntilVisible:
+    element: "Gallery qr"
+    timeout: 120000
+    speed: 5
+    optional: true
 - assertVisible: "Gallery qr"
-- assertVisible: "Gallery media"

@@ -2167,10 +2167,9 @@
     react-docgen "^8.0.2"
     react-docgen-typescript "^2.2.2"
 
-"@synotech/components-native@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-4.2.1.tgz#47b4116593ece076583ff5262b9b90ecdae40a9f"
-  integrity sha512-48mv42Iz6LblUZZZNweP5j0y5zJoI7v4ipIhtmTD2FIvhnUe8sSG0fcX4dMqtCyRYYaVdfLZ2YEu8jldoT8FRA==
+"@synotech/components-native@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-4.3.0.tgz"
 
 "@synotech/flags@^3.0.1":
   version "3.0.1"
@@ -2304,6 +2303,11 @@
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@types/doctrine/-/doctrine-0.0.9.tgz#d86a5f452a15e3e3113b99e39616a9baa0f9863f"
   integrity sha512-eOIHzCUSH7SMfonMG1LsC2f8vxBFtho6NGBznK41R84YzPuvSBzrhEps33IsQiOW9+VL6NQ9DbjQJznk/S4uRA==
+
+"@types/emscripten@^1.41.5":
+  version "1.41.6"
+  resolved "https://registry.yarnpkg.com/@types/emscripten/-/emscripten-1.41.6.tgz#0d852a4c29fc2c035ed9232f00135717f1a920f1"
+  integrity sha512-uN+9i8bFT5CUcZfyIEYDrSueACEyKGbUs5kC/72DGlZZoinh84sJfVV0i8UOJD1asdzkvLPBRrKs41kZ8MdEXg==
 
 "@types/graceful-fs@^4.1.3":
   version "4.1.9"
@@ -2727,6 +2731,13 @@ balanced-match@^4.0.2:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-4.0.4.tgz#bfb10662feed8196a2c62e7c68e17720c274179a"
   integrity sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==
+
+barcode-detector@^3.0.0:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/barcode-detector/-/barcode-detector-3.2.2.tgz#3617f8659c8d4d708e381048940287d7d6fd524b"
+  integrity sha512-/4QOrrNrCRmDSBWiiP4aC72dnkuXUEdcFRidHgbPRXUpy82XcCMvJssI6fEs6JT42LS7DvBVZO70qasJbYKyrA==
+  dependencies:
+    zxing-wasm "3.1.3"
 
 base64-js@^1.3.1, base64-js@^1.5.1:
   version "1.5.1"
@@ -3414,6 +3425,13 @@ expo-asset@~55.0.20:
     "@expo/image-utils" "^0.8.17"
     expo-constants "~55.0.17"
 
+expo-camera@~55.0.13:
+  version "55.0.23"
+  resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-55.0.23.tgz#5ca5a03f0d7315dad00824a4f403275210d1e4ca"
+  integrity sha512-Qra5QIZv0BOXLLXNfQlOW8NLUx3gLiWKCfpLeguiOwXY6XPj9xIE3AfbrxGa27/KohgrtHy1sgsnLeJB76OGjA==
+  dependencies:
+    barcode-detector "^3.0.0"
+
 expo-constants@~55.0.17:
   version "55.0.17"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-55.0.17.tgz#cf77d27f3b74a46da2cd40ed1785fcc335ded374"
@@ -3542,6 +3560,11 @@ expo-updates@~55.0.30:
     glob "^13.0.0"
     ignore "^5.3.1"
     resolve-from "^5.0.0"
+
+expo-web-browser@~55.0.12:
+  version "55.0.20"
+  resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-55.0.20.tgz#43391924062bba847fed1e16fa723fe3c5b95e1b"
+  integrity sha512-masGrfbi/jqMezm/8cHHZ8chW+ifxumzt7QOCPiL+9aix0BSwuwDIBryEm2QPVmqJX51jckS0n245vWhwheQuQ==
 
 expo@~55.0.9:
   version "55.0.31"
@@ -3868,7 +3891,7 @@ inherits@2, inherits@~2.0.4:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -5164,6 +5187,14 @@ react-native-url-polyfill@^3.0.0:
   dependencies:
     whatwg-url-without-unicode "8.0.0-3"
 
+react-native-webview@13.16.0:
+  version "13.16.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-13.16.0.tgz#c995148f944a7eaf12389f0e6d5c6f5e6a775686"
+  integrity sha512-Nh13xKZWW35C0dbOskD7OX01nQQavOzHbCw9XoZmar4eXCo7AvrYJ0jlUfRVVIJzqINxHlpECYLdmAdFsl9xDA==
+  dependencies:
+    escape-string-regexp "^4.0.0"
+    invariant "2.2.4"
+
 react-native-worklets@0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/react-native-worklets/-/react-native-worklets-0.7.4.tgz#6cc1eed31417ced2b007d82bfbd506ac27797de5"
@@ -5661,6 +5692,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+tagged-tag@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/tagged-tag/-/tagged-tag-1.0.0.tgz#a0b5917c2864cba54841495abfa3f6b13edcf4d6"
+  integrity sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==
+
 terminal-link@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/terminal-link/-/terminal-link-2.1.1.tgz#14a64a27ab3c0df933ea546fba55f2d078edc994"
@@ -5770,6 +5806,13 @@ type-fest@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.7.1.tgz#8dda65feaf03ed78f0a3f9678f1869147f7c5c48"
   integrity sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==
+
+type-fest@^5.8.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-5.9.0.tgz#0a4dd554d397f1a44447477eaeb3d1f4d8c7680f"
+  integrity sha512-yANm3Jr3GiJ1qgJlxGAVxTOIcEOk1rhQHamlXtnrCK7EHP4HeM9OGxtMg/W7HFdrVzw/ZWJKGVIJusVH85sLtw==
+  dependencies:
+    tagged-tag "^1.0.0"
 
 typescript@^5.8.3:
   version "5.9.3"
@@ -6019,3 +6062,11 @@ zod@^3.25.76:
   version "3.25.76"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
+
+zxing-wasm@3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/zxing-wasm/-/zxing-wasm-3.1.3.tgz#0f26377994edddd2b8d8132e9eb5a4e99e813444"
+  integrity sha512-3lC9BJk4fR5ZJxcGjb0hVnDFOW7KpLXHIebiBmVd4FDRQZVeObztoTKxRUPxlWwSgxrMRONK0u50hBD1aTYEKg==
+  dependencies:
+    "@types/emscripten" "^1.41.5"
+    type-fest "^5.8.0"

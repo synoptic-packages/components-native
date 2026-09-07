@@ -1,6 +1,6 @@
 {
 	"name": "@synotech/components-native",
-	"version": "4.2.1",
+	"version": "4.3.0",
 	"description": "Shared React Native component library for the Synotech ecosystem",
 	"keywords": [
 		"react-native",
@@ -48,9 +48,11 @@
 		"@synotech/qrcode-native": ">=1",
 		"card-validator": ">=10",
 		"expo": ">=52",
+		"expo-camera": ">=16",
 		"expo-haptics": ">=14",
 		"expo-image": ">=2",
 		"expo-image-picker": ">=16",
+		"expo-web-browser": ">=13",
 		"libphonenumber-js": ">=1",
 		"lodash": ">=4",
 		"lucide-react-native": ">=1",
@@ -68,6 +70,7 @@
 		"react-native-reanimated-carousel": ">=4",
 		"react-native-svg": ">=15",
 		"react-native-toast-message": ">=2",
+		"react-native-webview": ">=13",
 		"reanimated-color-picker": ">=4"
 	},
 	"devDependencies": {
@@ -82,9 +85,11 @@
 		"@types/lodash": "^4.17.24",
 		"@types/react": "^19",
 		"card-validator": "^10.0.4",
+		"expo-camera": "~55.0.13",
 		"expo-haptics": "~14.1.4",
 		"expo-image": "~55.0.8",
 		"expo-image-picker": "~55.0.16",
+		"expo-web-browser": "~55.0.12",
 		"libphonenumber-js": "^1.12.41",
 		"lodash": "^4.17.21",
 		"lucide-react-native": "^1.7.0",
@@ -103,6 +108,7 @@
 		"react-native-safe-area-context": "~5.6.0",
 		"react-native-svg": "15.15.3",
 		"react-native-toast-message": "^2.3.3",
+		"react-native-webview": "13.16.0",
 		"reanimated-color-picker": "^4.2.0",
 		"rimraf": "^5.0.0",
 		"tsup": "^8.5.0",

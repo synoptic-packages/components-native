@@ -1,0 +1,30 @@
+appId: dev.synotech.componentsnative.example
+---
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible: "Gallery navigation"
+    timeout: 120000
+- scrollUntilVisible:
+    element: "Gallery status success"
+    timeout: 90000
+    speed: 5
+    optional: true
+- scrollUntilVisible:
+    element: "Gallery qr scanner"
+    timeout: 90000
+    speed: 5
+    optional: true
+- assertVisible: "Gallery qr scanner"
+- scrollUntilVisible:
+    element: "Point the camera at a QR code"
+    timeout: 90000
+    speed: 5
+    optional: true
+- assertVisible: "Point the camera at a QR code"
+- scrollUntilVisible:
+    element: "Gallery camera preview"
+    timeout: 90000
+    speed: 5
+    optional: true
+- assertVisible: "Gallery camera preview"

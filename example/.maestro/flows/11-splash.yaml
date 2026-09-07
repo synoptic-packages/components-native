@@ -1,0 +1,25 @@
+appId: dev.synotech.componentsnative.example
+---
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible: "Gallery navigation"
+    timeout: 120000
+- scrollUntilVisible:
+    element: "Gallery splash"
+    timeout: 90000
+    speed: 5
+    optional: true
+- assertVisible: "Gallery splash"
+- scrollUntilVisible:
+    element: "Gallery status error"
+    timeout: 90000
+    speed: 5
+    optional: true
+- assertVisible: "Gallery status error"
+- scrollUntilVisible:
+    element: "Gallery status success"
+    timeout: 90000
+    speed: 5
+    optional: true
+- assertVisible: "Gallery status success"

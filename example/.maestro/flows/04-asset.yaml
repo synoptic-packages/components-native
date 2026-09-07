@@ -1,7 +1,10 @@
 appId: dev.synotech.componentsnative.example
 ---
 - launchApp:
-    stopApp: false
+    stopApp: true
+- extendedWaitUntil:
+    visible: "Gallery controls"
+    timeout: 120000
 - scrollUntilVisible:
     element: "Gallery asset"
     timeout: 60000

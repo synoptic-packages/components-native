@@ -1,0 +1,9 @@
+appId: dev.synotech.componentsnative.example
+---
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible: "Gallery controls"
+    timeout: 120000
+- assertVisible: "Gallery controls"
+- assertVisible: "Gallery primary"

@@ -1,6 +1,6 @@
 {
 	"name": "@synotech/components-native",
-	"version": "4.1.1",
+	"version": "4.2.0",
 	"description": "Shared React Native component library for the Synotech ecosystem",
 	"keywords": [
 		"react-native",

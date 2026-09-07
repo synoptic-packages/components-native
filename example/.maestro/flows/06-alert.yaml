@@ -1,0 +1,10 @@
+appId: dev.synotech.componentsnative.example
+---
+- launchApp:
+    stopApp: false
+- scrollUntilVisible:
+    element: "Gallery alert"
+    timeout: 60000
+    speed: 5
+    optional: true
+- assertVisible: "Gallery alert"

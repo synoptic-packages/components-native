@@ -5,3 +5,7 @@ web-build
 *.log
 .DS_Store
 .env*
+
+# local native builds (expo run:ios) — regenerable, never commit
+ios/
+android/

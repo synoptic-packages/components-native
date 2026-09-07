@@ -1,0 +1,12 @@
+appId: dev.synotech.componentsnative.example
+---
+- launchApp:
+    stopApp: false
+- scrollUntilVisible:
+    element: "Gallery asset"
+    timeout: 60000
+    speed: 5
+    optional: true
+- assertVisible: "Gallery price"
+- assertVisible: "Gallery password"
+- assertVisible: "Gallery asset"

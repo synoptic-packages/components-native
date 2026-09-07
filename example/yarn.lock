@@ -2168,8 +2168,9 @@
     react-docgen-typescript "^2.2.2"
 
 "@synotech/components-native@^4.2.1":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-4.2.1.tgz"
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-4.2.1.tgz#47b4116593ece076583ff5262b9b90ecdae40a9f"
+  integrity sha512-48mv42Iz6LblUZZZNweP5j0y5zJoI7v4ipIhtmTD2FIvhnUe8sSG0fcX4dMqtCyRYYaVdfLZ2YEu8jldoT8FRA==
 
 "@synotech/flags@^3.0.1":
   version "3.0.1"

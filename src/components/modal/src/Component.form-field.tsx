@@ -21,6 +21,13 @@ interface Props {
 	onSelect?: (_: TGeneric) => void
 	children: React.ReactNode
 	template?: 'country' | 'language' | 'crypto' | 'currency' | 'person' | 'pointer'
+	/**
+	 * Crypto row icon renderer. Token artwork belongs to the host app (its own
+	 * SVG set, e.g. ventry's `@/assets/svgs/Crypto*`), so the shared modal
+	 * cannot resolve slugs itself. Defaults to the generic `Icon` fallback
+	 * (renders nothing for unknown slugs) when the host passes nothing.
+	 */
+	renderCryptoIcon?: (_item: TGeneric) => React.ReactNode
 	options: {
 		label: string
 		value: TGeneric
@@ -30,7 +37,7 @@ interface Props {
 
 const ITEM_HEIGHT = 48
 
-export const Component: React.FC<Props> = ({ options, isVisible, setIsVisible, onSelect, template }) => {
+export const Component: React.FC<Props> = ({ options, isVisible, setIsVisible, onSelect, template, renderCryptoIcon }) => {
 	const { colors } = useTheme()
 	const { top } = useSafeAreaInsets()
 	const [searchQuery, setSearchQuery] = useState<string>('')
@@ -69,7 +76,9 @@ export const Component: React.FC<Props> = ({ options, isVisible, setIsVisible, o
 						) : template === 'language' ? (
 							<Flag code={item?.flag?.toLowerCase()} size={24} />
 						) : template === 'crypto' ? (
-							<Icon name={item?.slug || 'SyCoins'} size={18} color={item?.colorDark ? 'white' : 'black'} />
+							renderCryptoIcon?.(item) ?? (
+								<Icon name={item?.slug || 'SyCoins'} size={18} color={item?.colorDark ? 'white' : 'black'} />
+							)
 						) : template === 'currency' ? (
 							<Flag code={item?.flag?.toLowerCase()} size={24} />
 						) : template === 'pointer' ? (

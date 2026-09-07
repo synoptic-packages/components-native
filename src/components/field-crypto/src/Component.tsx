@@ -148,6 +148,15 @@ export const Component: React.FC<FieldComponentProps> = ({
 					setIsVisible={setModalVisible}
 					template={`crypto`}
 					options={modalOptions}
+					renderCryptoIcon={(item: TGeneric) =>
+						renderAssetIcon?.({
+							symbol: String(item?.value ?? ''),
+							name: String(item?.label ?? ''),
+							slug: String(item?.slug ?? ''),
+							color: typeof item?.color === 'string' ? item.color : undefined,
+							colorDark: item?.colorDark === true,
+						})
+					}
 					onSelect={(item: TGeneric) => {
 						onChange({ amount: value?.amount ?? null, assetSymbol: item.value })
 					}}>

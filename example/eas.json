@@ -12,7 +12,8 @@
 				"APP_ENV": "development",
 				"EXPO_PUBLIC_APP_ENVIRONMENT": "development",
 				"EXPO_PUBLIC_STORYBOOK_ENABLED": "true"
-			}
+			},
+			"nodeVersion": "22.16.0"
 		},
 		"development:device": {
 			"developmentClient": true,
@@ -26,7 +27,8 @@
 				"APP_ENV": "development",
 				"EXPO_PUBLIC_APP_ENVIRONMENT": "development",
 				"EXPO_PUBLIC_STORYBOOK_ENABLED": "true"
-			}
+			},
+			"nodeVersion": "22.16.0"
 		},
 		"preview": {
 			"environment": "production",
@@ -36,7 +38,8 @@
 				"APP_ENV": "production",
 				"EXPO_PUBLIC_APP_ENVIRONMENT": "production",
 				"EXPO_PUBLIC_STORYBOOK_ENABLED": "true"
-			}
+			},
+			"nodeVersion": "22.16.0"
 		}
 	},
 	"cli": {

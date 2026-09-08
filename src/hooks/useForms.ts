@@ -44,10 +44,18 @@ export const FormContext = createContext<FormContextType | undefined>(undefined)
 
 FormContext.displayName = 'FormContext'
 
+const fallbackContext: FormContextType = {
+	form: initialFormState,
+	openForm: () => {},
+	closeForm: () => {},
+}
+
 export const useForms = (): FormContextType => {
 	const context = useContext(FormContext)
-	if (context === undefined) {
-		throw new Error('useForms must be used within a FormContext.Provider')
-	}
-	return context
+	// No provider above (host renders `Form` standalone, or owns its own form
+	// registry like ventry's `SyFormProvider`): fall back to inert defaults
+	// instead of throwing. Throwing here blanked whole screens — a mounted
+	// native modal kept its backdrop while its JS content died, surfacing as
+	// an empty opacity film with no error anywhere near the cause.
+	return context ?? fallbackContext
 }

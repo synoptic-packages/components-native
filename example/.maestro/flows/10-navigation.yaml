@@ -3,8 +3,16 @@ appId: dev.synotech.componentsnative.example
 - launchApp:
     stopApp: true
 - extendedWaitUntil:
-    visible: "Gallery navigation"
+    visible: "Gallery form"
     timeout: 120000
+- assertVisible: "Gallery form"
+- assertVisible: "Gallery nickname"
+- assertVisible: "Gallery form save"
+- scrollUntilVisible:
+    element: "Gallery navigation"
+    timeout: 90000
+    speed: 5
+    optional: true
 - assertVisible: "Gallery navigation"
 - assertVisible: "Gallery link"
 - assertVisible: "Gallery external link"

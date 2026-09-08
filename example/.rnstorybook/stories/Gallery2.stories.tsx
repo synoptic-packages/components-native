@@ -1,11 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-native'
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import {
 	AvatarContact,
 	AvatarUser,
 	Browser,
 	Divider,
 	ExternalLink,
+	FieldText,
+	Form,
 	Link,
 	QrScanner,
 	ScrollView,
@@ -38,10 +41,25 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 // hops — each story stays short enough that every marker is a few hops away.
 function Gallery2() {
 	const [previewUploading, setPreviewUploading] = useState(false)
+	// A REAL package Form (own RHF control, no FormContext provider above).
+	// This exact shape — standalone Form outside any registry — is what every
+	// ventry screen renders, and the sweep missed it until a throwing
+	// useForms() blanked app screens behind mounted modal backdrops.
+	const galleryForm = useForm({ defaultValues: { nickname: `` } })
 
 	return (
 		<ScrollView>
 			<View gap={16}>
+				<Section title="Gallery form">
+					<Form
+						control={galleryForm.control}
+						onSubmit={galleryForm.handleSubmit(() => console.log('gallery submit'))}
+						onReset={() => galleryForm.reset()}
+						submitLabel={`Gallery form save`}>
+						{({ control }) => <FieldText control={control} name={`nickname`} label={`Gallery nickname`} />}
+					</Form>
+				</Section>
+
 				<Section title="Gallery navigation">
 					<Link href="/gallery-link" label="Gallery link" onPress={() => console.log('gallery link')} />
 					<ExternalLink href="https://example.com" openInBrowser={false}>

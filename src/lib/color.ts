@@ -155,3 +155,18 @@ export const withOpacity = (color: string, opacity: number): string => {
 	}
 	return color
 }
+
+/**
+ * Resolve a color token against the palette, passing anything else through.
+ * A component prop typed as a token OR a raw color (marker colors, route
+ * colors) needs exactly this: theme-aware when it names a token, untouched
+ * when the server sent a hex.
+ */
+export function resolveColor<Palette extends object>(value: string, colors: Palette): string {
+	if (value in colors) {
+		const resolved = (colors as Record<string, unknown>)[value]
+		if (typeof resolved === 'string') return resolved
+	}
+
+	return value
+}

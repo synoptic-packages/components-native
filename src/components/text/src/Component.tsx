@@ -267,17 +267,27 @@ export const Component: React.FC<ComponentProps> = ({
 		...(color && { color: resolveColor(color, colors) }),
 	}
 
-	function RNTextRender() {
+	const RNTextRender = ({ stripIdentity = false }: { stripIdentity?: boolean }) => {
+		// A pressable Text must carry its identity on the PRESSABLE, not on the
+		// text inside it — same collapse rule `Icon` documents: React Native
+		// merges an accessible container's descendants into one node, so an
+		// inner `testID` disappears from the native tree the moment `onPress`
+		// wraps it (vya preauth-sign-in was on screen and invisible to Maestro
+		// for exactly this reason). Strip the identity from the inner node so
+		// the id exists exactly once.
+		const { testID: _testID, accessibilityLabel: _accessibilityLabel, ...innerProps } = remainingProps
 		return (
-			<RNText style={[propStyles, textStyleProps, textStyle, style]} {...remainingProps}>
+			<RNText style={[propStyles, textStyleProps, textStyle, style]} {...(stripIdentity ? innerProps : remainingProps)}>
 				{children}
 			</RNText>
 		)
 	}
 
+	const pressableTestID = (remainingProps as { testID?: string }).testID
+	const pressableLabel = (remainingProps as { accessibilityLabel?: string }).accessibilityLabel
 	return onPress ? (
-		<TouchableOpacity onPress={onPress}>
-			<RNTextRender />
+		<TouchableOpacity onPress={onPress} testID={pressableTestID} accessibilityLabel={pressableLabel}>
+			<RNTextRender stripIdentity />
 		</TouchableOpacity>
 	) : (
 		<RNTextRender />

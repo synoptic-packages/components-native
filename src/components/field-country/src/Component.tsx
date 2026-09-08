@@ -77,11 +77,21 @@ export const Component: React.FC<FieldComponentProps> = ({
 						<Pressable
 							style={componentStyles.inputContent}
 							onPress={disabled ? undefined : () => setModalVisible(true)}>
-							<Flag
-								code={(selected?.value ?? defaultCountryCode).toLowerCase()}
-								size={22}
-								style={componentStyles.flagIcon}
-							/>
+							{(selected?.value ?? defaultCountryCode) ? (
+								<Flag
+									code={String(selected?.value ?? defaultCountryCode).toLowerCase()}
+									size={22}
+									style={componentStyles.flagIcon}
+								/>
+							) : (
+								<Icon
+									family={`MaterialCommunityIcons`}
+									name={`earth`}
+									size={22}
+									color={hasError ? colors?.error : colors?.muted}
+									style={componentStyles.flagIcon}
+								/>
+							)}
 							<InputNative
 								{...inputProps}
 								editable={false}

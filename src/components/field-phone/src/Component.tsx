@@ -168,7 +168,16 @@ export const Component: React.FC<FieldComponentProps> = ({
 						<View style={componentStyles.inputContent}>
 							<Pressable style={componentStyles.countryButton} onPress={() => setModalVisible(true)}>
 								<View style={componentStyles.flagWrap}>
-									<Flag code={selectedCountryCode.toLowerCase()} size={24} />
+									{selectedCountryCode ? (
+										<Flag code={selectedCountryCode.toLowerCase()} size={24} />
+									) : (
+										<Icon
+											family={`MaterialCommunityIcons`}
+											name={`earth`}
+											size={24}
+											color={hasError ? colors?.error : colors?.muted}
+										/>
+									)}
 								</View>
 								<Text
 									variant={`bodyMedium`}

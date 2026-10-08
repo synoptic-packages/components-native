@@ -54,7 +54,9 @@
 		"typecheck": "tsc --noEmit",
 		"prepublishOnly": "yarn build",
 		"format": "prettier --write .",
-		"test": "node --test --experimental-strip-types tests/*.test.mjs"
+		"test": "node --test --experimental-strip-types tests/*.test.mjs",
+		"prepare": "husky",
+		"format:check": "prettier --check ."
 	},
 	"peerDependencies": {
 		"@expo/vector-icons": ">=15",
@@ -119,10 +121,13 @@
 		"expo-location": "~55.1.6",
 		"expo-web-browser": "~55.0.12",
 		"geojson": "0.5.0",
+		"husky": "^9.1.7",
 		"libphonenumber-js": "^1.12.41",
+		"lint-staged": "^16.2.6",
 		"lodash": "^4.17.21",
 		"lucide-react-native": "^1.7.0",
 		"moti": "^0.28.1",
+		"prettier": "^3.6.2",
 		"react": "^19.2.0",
 		"react-hook-form": "^7.72.0",
 		"react-native": "^0.83.4",
@@ -145,15 +150,17 @@
 		"typescript": "^5.8.3"
 	},
 	"prettier": {
-		"bracketSpacing": true,
-		"tabWidth": 4,
 		"useTabs": true,
-		"bracketSameLine": true,
 		"singleQuote": true,
 		"semi": false,
-		"trailingComma": "es5",
-		"endOfLine": "auto",
-		"printWidth": 120
+		"printWidth": 120,
+		"trailingComma": "all"
 	},
-	"packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+	"packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+	"lint-staged": {
+		"*.{js,mjs,cjs,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write",
+			"git add"
+		]
+	}
 }

@@ -11,7 +11,7 @@ name: Publish example update
 # from AWS SSM (/infomentor/production/expo-token) via the
 # gha-synoptic-wallet-ui OIDC role — never from a GitHub secret, never in code.
 # NOTE: that SSM path must be added to the role's allowlist in
-# synoptic-technologies/infra/terraform/github.tf (ci_role_wallet_ui
+# synoptic-infrastructure/infra/terraform/github.tf (ci_role_wallet_ui
 # ssm_parameter_names) or the fetch step fails closed.
 
 on:

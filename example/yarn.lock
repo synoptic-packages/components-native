@@ -2172,10 +2172,10 @@
     react-docgen "^8.0.2"
     react-docgen-typescript "^2.2.2"
 
-"@synotech/components-native@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-5.0.2.tgz#f2ecdbbe1f0ff90de8806032175478bf1be44f6a"
-  integrity sha512-tPW1+dzVMVx6nE26Q3/C73XW1zBmzgy4v5B8b9SCnGgVYaGVZbtBKZwPWyBYtFKIhzEdlVDUq0u7wT+mww8sXg==
+"@synotech/components-native@5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@synotech/components-native/-/components-native-5.1.2.tgz#d859e1a5b0e43e320c4f28dcb61342b7dc193d0c"
+  integrity sha512-XjY7aruFRzGM2Pi7L92NDI7ws+ff/MDAO+cApWc3Dyq+vFvbuVLJ95PMg90p3PInjUnJBdUKdV6I1ryvIYOKQQ==
 
 "@synotech/flags@^3.0.1":
   version "3.0.1"
